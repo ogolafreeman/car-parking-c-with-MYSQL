@@ -126,7 +126,7 @@ The system uses a MySQL database named `carparking` with the following tables:
 
 ### **2. Database Setup**
 1. Create the `carparking` database:
-   ```sql
+```sql
    CREATE DATABASE carparking;
    USE carparking;
    CREATE TABLE users (
@@ -137,7 +137,7 @@ The system uses a MySQL database named `carparking` with the following tables:
     role ENUM('Admin', 'User') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-```sql
+
 CREATE TABLE parking_spots (
     id INT AUTO_INCREMENT PRIMARY KEY,
     location VARCHAR(255) NOT NULL,
@@ -165,15 +165,12 @@ CREATE TABLE transactions (
 );
 ```
 ## Future Enhancements
-Graphical User Interface (GUI):
+- **Graphical User Interface (GUI):** Implement a GUI using libraries like Qt or GTK for a better user experience.
+- **Email Notifications:** Send email notifications for booking confirmations, payment receipts, etc.
+- **Mobile App Integration:** Develop a mobile app for users to book slots and manage their accounts.
+- **Advanced Analytics:** Use machine learning to predict parking demand and optimize slot allocation.
 
-Implement a GUI using libraries like Qt or GTK for a better user experience.
-Email Notifications:
+## Contributors
+- **Name:** Okwemba Jacktone
 
-Send email notifications for booking confirmations, payment receipts, etc.
-Mobile App Integration:
-
-Develop a mobile app for users to book slots and manage their accounts.
-Advanced Analytics:
-
-Use machine learning to predict parking demand and optimize slot allocation.
+- Feel free to contribute to this project or use it as a reference for your own applications! If you have any questions or suggestions, please open an issue or contact the contributors.

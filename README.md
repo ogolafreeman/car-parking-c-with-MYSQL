@@ -171,6 +171,6 @@ CREATE TABLE transactions (
 - **Advanced Analytics:** Use machine learning to predict parking demand and optimize slot allocation.
 
 ## Contributors
-- **Name:** Okwemba Jacktone
+- `Name:` Okwemba Jacktone
 
 - Feel free to contribute to this project or use it as a reference for your own applications! If you have any questions or suggestions, please open an issue or contact the contributors.

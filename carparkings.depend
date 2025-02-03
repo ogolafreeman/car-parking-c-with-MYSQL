@@ -241,14 +241,44 @@
 
 1476097177 c:\program files (x86)\codeblocks\mingw\include\my_alloc.h
 
-1738526848 d:\c++ projects\carparkings\include\dashboard.h
+1738573471 d:\c++ projects\carparkings\include\dashboard.h
 	<iostream>
 
-1738528073 source:d:\c++ projects\carparkings\src\dashboard.cpp
+1738610901 source:d:\c++ projects\carparkings\src\dashboard.cpp
 	"dashboard.h"
+	"overview.h"
+	"ParkingSlots.h"
 	<iostream>
 	<cstdlib>
 
 1341006770 c:\program files (x86)\codeblocks\mingw\include\conio.h
 	<_mingw.h>
+
+1738603846 source:d:\c++ projects\carparkings\src\overview.cpp
+	"overview.h"
+
+1738602101 d:\c++ projects\carparkings\include\overview.h
+	<windows.h>
+	<mysql.h>
+	<sstream>
+	<thread>
+	<chrono>
+	<string>
+	<iostream>
+	<conio.h>
+	<sstream>
+
+1738610634 source:d:\c++ projects\carparkings\src\parkingslots.cpp
+	"parkingslots.h"
+
+1738611412 d:\c++ projects\carparkings\include\parkingslots.h
+	<windows.h>
+	<mysql.h>
+	<sstream>
+	<thread>
+	<chrono>
+	<string>
+	<iostream>
+	<conio.h>
+	<sstream>
 

@@ -1,4 +1,6 @@
 #include "dashboard.h"
+#include "overview.h"  // Include Overview class
+#include "ParkingSlots.h"
 #include <iostream>
 #include <cstdlib> // For system("cls")
 
@@ -30,10 +32,18 @@ void dashboard(std::string role) {
         switch (choice) {
             case 1:
                 std::cout << "\nDashboard Overview Selected\n";
-                // Add functionality for Dashboard Overview
+                {
+                    Overview overview;
+                    overview.displayOverview();
+                }
                 break;
             case 2:
                 std::cout << "\nParking Slot Management Selected\n";
+                {
+                    ParkingSlots parking;
+                    parking.viewSlots(); // Display parking slots
+                }
+
                 // Add functionality for Parking Slot Management
                 break;
             case 3:

@@ -244,12 +244,12 @@
 1738573471 d:\c++ projects\carparkings\include\dashboard.h
 	<iostream>
 
-1738610901 source:d:\c++ projects\carparkings\src\dashboard.cpp
+1738698406 source:d:\c++ projects\carparkings\src\dashboard.cpp
 	"dashboard.h"
+	"parkingslots.h"
 	"overview.h"
-	"ParkingSlots.h"
-	<iostream>
-	<cstdlib>
+	"users.h"
+	"booking.h"
 
 1341006770 c:\program files (x86)\codeblocks\mingw\include\conio.h
 	<_mingw.h>
@@ -268,17 +268,33 @@
 	<conio.h>
 	<sstream>
 
-1738610634 source:d:\c++ projects\carparkings\src\parkingslots.cpp
+1738691160 source:d:\c++ projects\carparkings\src\parkingslots.cpp
 	"parkingslots.h"
 
-1738611412 d:\c++ projects\carparkings\include\parkingslots.h
+1738691188 d:\c++ projects\carparkings\include\parkingslots.h
 	<windows.h>
 	<mysql.h>
 	<sstream>
-	<thread>
-	<chrono>
 	<string>
 	<iostream>
-	<conio.h>
+
+1738692220 d:\c++ projects\carparkings\include\users.h
+	<windows.h>
+	<mysql.h>
+	<string>
+	<iostream>
+	<sstream>
+
+1738693437 source:d:\c++ projects\carparkings\src\users.cpp
+	"users.h"
+
+1738700059 source:d:\c++ projects\carparkings\src\booking.cpp
+	"booking.h"
+
+1738699757 d:\c++ projects\carparkings\include\booking.h
+	<windows.h>
+	<mysql.h>
+	<string>
+	<iostream>
 	<sstream>
 

@@ -3,10 +3,12 @@
 #include "overview.h"
 #include "users.h"
 #include "booking.h"
+#include "vehicle.h"
+#include"payment.h"
 
 void dashboard(std::string role) {
     while (true) {
-        system("cls"); // Windows, change to system("clear") for Linux/macOS
+        system("cls"); // Clear screen (change to system("clear") for Linux/macOS)
         std::cout << "\n\n********** DASHBOARD **********\n";
 
         if (role == "Admin") {
@@ -15,8 +17,9 @@ void dashboard(std::string role) {
             std::cout << "1. Dashboard Overview\n";
             std::cout << "2. Parking Slot Management\n";
             std::cout << "3. User Management\n";
+            std::cout << "4. Vehicle Entry & Exit Management\n";  // 🆕 New Option
             std::cout << "7. Bookings & Reservation\n";
-
+            std::cout << "8. Payments & Transactions\n";
             std::cout << "11. Logout\n";
 
             int choice;
@@ -33,7 +36,6 @@ void dashboard(std::string role) {
 
             switch (choice) {
                 case 1: {
-                    std::cout << "\nDashboard Overview Selected\n";
                     Overview overview;
                     overview.displayOverview();
                     system("pause");
@@ -179,6 +181,61 @@ void dashboard(std::string role) {
                     }
                     break;
                 }
+
+                // 🆕 New: Vehicle Entry & Exit Management
+                case 4: {
+                    Vehicle vehicle;
+                    while (true) {
+                        system("cls");
+                        std::cout << "\n----- Vehicle Entry & Exit Management -----\n";
+                        std::cout << "1. Register Vehicle Entry\n";
+                        std::cout << "2. Register Vehicle Exit\n";
+                        std::cout << "3. View Vehicle Logs\n";
+                        std::cout << "4. Back to Dashboard\n";
+                        std::cout << "Enter your choice: ";
+                        int vehicleChoice;
+                        std::cin >> vehicleChoice;
+
+                        if (std::cin.fail()) {
+                            std::cin.clear();
+                            std::cin.ignore(1000, '\n');
+                            std::cout << "Invalid input! Please enter a number.\n";
+                            system("pause");
+                            continue;
+                        }
+
+                        switch (vehicleChoice) {
+                            case 1: {
+                                int booking_id;
+                                std::string vehicle_plate;
+                                std::cout << "Enter Booking ID: ";
+                                std::cin >> booking_id;
+                                std::cout << "Enter Vehicle Plate: ";
+                                std::cin >> vehicle_plate;
+                                vehicle.registerEntry(booking_id, vehicle_plate);
+                                break;
+                            }
+                            case 2: {
+                                int booking_id;
+                                std::cout << "Enter Booking ID to Exit: ";
+                                std::cin >> booking_id;
+                                vehicle.registerExit(booking_id);
+                                break;
+                            }
+                            case 3:
+                                vehicle.viewVehicleLogs();
+                                break;
+                            case 4:
+                                goto dashboard_loop;
+                            default:
+                                std::cout << "Invalid choice! Try again.\n";
+                                break;
+                        }
+                        system("pause");
+                    }
+                    break;
+                }
+
                 case 7: { // Booking & Reservation System
     Booking booking;
     int bookingChoice;
@@ -230,9 +287,95 @@ void dashboard(std::string role) {
     }
 }
 
+                    // Booking system already implemented.
+                    break;
+
+
+case 8: {
+    Payment payment;
+    int paymentChoice;
+
+    while (true) {
+        system("cls");
+        std::cout << "\n----- Payment & Billing Management -----\n";
+        std::cout << "1. View Transactions\n";
+        std::cout << "2. Process a Payment\n";
+        std::cout << "3. Update Payment Status\n";
+        std::cout << "4. Delete a Transaction\n";
+        std::cout << "5. Back to Dashboard\n";
+        std::cout << "Enter your choice: ";
+        std::cin >> paymentChoice;
+
+        if (std::cin.fail()) {
+            std::cin.clear();
+            std::cin.ignore(1000, '\n');
+            std::cout << "Invalid input! Please enter a number.\n";
+            system("pause");
+            continue;
+        }
+
+        switch (paymentChoice) {
+            case 1:
+                payment.viewTransactions();
+                system("pause");
+                break;
+            case 2: {
+                int user_id, parking_id;
+                double amount;
+                std::string method, ref_number;
+
+                std::cout << "Enter User ID: ";
+                std::cin >> user_id;
+                std::cout << "Enter Parking Slot ID: ";
+                std::cin >> parking_id;
+                std::cout << "Enter Amount: ";
+                std::cin >> amount;
+                std::cout << "Enter Payment Method (Cash/Credit Card/Mobile Payment): ";
+                std::cin >> method;
+                std::cout << "Enter Reference Number: ";
+                std::cin >> ref_number;
+
+                payment.processPayment(user_id, parking_id, amount, method, ref_number);
+                system("pause");
+                break;
+            }
+            case 3: {
+                int transaction_id;
+                std::string status;
+                std::cout << "Enter Transaction ID: ";
+                std::cin >> transaction_id;
+                std::cout << "Enter New Status (Pending/Completed/Failed): ";
+                std::cin >> status;
+
+                payment.updateTransactionStatus(transaction_id, status);
+                system("pause");
+                break;
+            }
+            case 4: {
+                int transaction_id;
+                std::cout << "Enter Transaction ID to Delete: ";
+                std::cin >> transaction_id;
+
+                payment.deleteTransaction(transaction_id);
+                system("pause");
+                break;
+            }
+            case 5:
+                goto dashboard_loop;
+            default:
+                std::cout << "Invalid option! Try again.\n";
+                system("pause");
+                break;
+        }
+    }
+    break;
+}
+
+
                 case 11:
                     std::cout << "\nLogging out...\n";
                     return;
+
                 default:
                     std::cout << "\nInvalid choice! Please try again.\n";
                     system("pause");

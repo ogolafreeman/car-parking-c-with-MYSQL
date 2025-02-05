@@ -244,12 +244,14 @@
 1738573471 d:\c++ projects\carparkings\include\dashboard.h
 	<iostream>
 
-1738698406 source:d:\c++ projects\carparkings\src\dashboard.cpp
+1738777720 source:d:\c++ projects\carparkings\src\dashboard.cpp
 	"dashboard.h"
 	"parkingslots.h"
 	"overview.h"
 	"users.h"
 	"booking.h"
+	"vehicle.h"
+	"payment.h"
 
 1341006770 c:\program files (x86)\codeblocks\mingw\include\conio.h
 	<_mingw.h>
@@ -288,7 +290,7 @@
 1738693437 source:d:\c++ projects\carparkings\src\users.cpp
 	"users.h"
 
-1738700059 source:d:\c++ projects\carparkings\src\booking.cpp
+1738700734 source:d:\c++ projects\carparkings\src\booking.cpp
 	"booking.h"
 
 1738699757 d:\c++ projects\carparkings\include\booking.h
@@ -297,4 +299,24 @@
 	<string>
 	<iostream>
 	<sstream>
+
+1738748329 d:\c++ projects\carparkings\include\vehicle.h
+	<windows.h>
+	<mysql.h>
+	<string>
+	<iostream>
+	<sstream>
+
+1738748108 source:d:\c++ projects\carparkings\src\vehicle.cpp
+	"vehicle.h"
+
+1738777479 d:\c++ projects\carparkings\include\payment.h
+	<windows.h>
+	<mysql.h>
+	<string>
+	<iostream>
+	<sstream>
+
+1738751785 source:d:\c++ projects\carparkings\src\payment.cpp
+	"payment.h"
 

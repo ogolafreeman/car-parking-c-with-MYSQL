@@ -39,12 +39,20 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/ParkingSlots.h" />
+		<Unit filename="include/booking.h" />
 		<Unit filename="include/dashboard.h" />
 		<Unit filename="include/overview.h" />
+		<Unit filename="include/payment.h" />
+		<Unit filename="include/users.h" />
+		<Unit filename="include/vehicle.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/ParkingSlots.cpp" />
+		<Unit filename="src/booking.cpp" />
 		<Unit filename="src/dashboard.cpp" />
 		<Unit filename="src/overview.cpp" />
+		<Unit filename="src/payment.cpp" />
+		<Unit filename="src/users.cpp" />
+		<Unit filename="src/vehicle.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

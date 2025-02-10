@@ -51,6 +51,7 @@ void dashboard(std::string role) {
                         std::cout << "3. Edit Parking Slot\n";
                         std::cout << "4. Delete Parking Slot\n";
                         std::cout << "5. Back to Dashboard\n";
+                        std::cout << "6. Download parking slots\n";
                         std::cout << "Enter your choice: ";
                         int option;
                         std::cin >> option;
@@ -303,6 +304,7 @@ case 8: {
         std::cout << "3. Update Payment Status\n";
         std::cout << "4. Delete a Transaction\n";
         std::cout << "5. Back to Dashboard\n";
+        std::cout << "6. Download payments\n";
         std::cout << "Enter your choice: ";
         std::cin >> paymentChoice;
 
@@ -360,6 +362,16 @@ case 8: {
                 system("pause");
                 break;
             }
+            case 6: {  // Assuming case 4 is for export
+    std::string filename;
+    std::cout << "Enter filename to save (e.g., transactions.csv): ";
+    std::cin >> filename;
+
+    payment.exportTransactionsToCSV(filename);
+    system("pause");
+    break;
+}
+
             case 5:
                 goto dashboard_loop;
             default:

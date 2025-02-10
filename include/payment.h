@@ -6,6 +6,7 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 class Payment {
 private:
@@ -18,6 +19,7 @@ public:
     void viewTransactions();
     void updateTransactionStatus(int transaction_id, const std::string& status);  // Fixed function name
     void deleteTransaction(int transaction_id);
+    void exportTransactionsToCSV(const std::string& filename);
 };
 
 #endif // PAYMENT_H

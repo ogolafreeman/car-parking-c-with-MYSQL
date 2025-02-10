@@ -70,3 +70,41 @@ void Payment::deleteTransaction(int transaction_id) {
         std::cout << "Transaction deleted successfully!" << std::endl;
     }
 }
+
+// New function to export transactions to CSV
+void Payment::exportTransactionsToCSV(const std::string& filename) {
+    MYSQL_RES *res;
+    MYSQL_ROW row;
+
+    std::string query = "SELECT id, user_id, parking_id, amount, payment_method, reference_number, status, transaction_time FROM transactions";
+    if (mysql_query(conn, query.c_str())) {
+        std::cerr << "Error executing query: " << mysql_error(conn) << std::endl;
+        return;
+    }
+
+    res = mysql_store_result(conn);
+    if (!res) {
+        std::cerr << "Error storing result: " << mysql_error(conn) << std::endl;
+        return;
+    }
+
+    std::ofstream file(filename);
+    if (!file) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return;
+    }
+
+    // Writing the header row
+    file << "Transaction ID,User ID,Parking ID,Amount,Payment Method,Reference,Status,Transaction Time\n";
+
+    // Writing the data rows
+    while ((row = mysql_fetch_row(res))) {
+        file << row[0] << "," << row[1] << "," << row[2] << "," << row[3] << ","
+             << row[4] << "," << row[5] << "," << row[6] << "," << row[7] << "\n";
+    }
+
+    file.close();
+    mysql_free_result(res);
+
+    std::cout << "Transactions exported successfully to " << filename << std::endl;
+}

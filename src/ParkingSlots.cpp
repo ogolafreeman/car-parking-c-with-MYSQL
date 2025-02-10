@@ -1,4 +1,5 @@
 #include "parkingslots.h"
+#include <fstream>  // For file handling
 
 ParkingSlots::ParkingSlots() {
     conn = mysql_init(NULL);
@@ -79,4 +80,46 @@ void ParkingSlots::deleteSlot(int slot_id) {
     } else {
         std::cout << "Error deleting slot: " << mysql_error(conn) << std::endl;
     }
+}
+
+// New function to export parking slots to CSV
+void ParkingSlots::exportSlotsToCSV(const std::string& filename) {
+    if (!conn) {
+        std::cerr << "Database connection not available!" << std::endl;
+        return;
+    }
+
+    MYSQL_RES *res;
+    MYSQL_ROW row;
+
+    std::string query = "SELECT id, location, status, price FROM parking_spots";
+    if (mysql_query(conn, query.c_str())) {
+        std::cerr << "Error executing query: " << mysql_error(conn) << std::endl;
+        return;
+    }
+
+    res = mysql_store_result(conn);
+    if (!res) {
+        std::cerr << "Error storing result: " << mysql_error(conn) << std::endl;
+        return;
+    }
+
+    std::ofstream file(filename);
+    if (!file) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return;
+    }
+
+    // Writing the header row
+    file << "Slot ID,Location,Status,Price\n";
+
+    // Writing the data rows
+    while ((row = mysql_fetch_row(res))) {
+        file << row[0] << "," << row[1] << "," << row[2] << "," << row[3] << "\n";
+    }
+
+    file.close();
+    mysql_free_result(res);
+
+    std::cout << "Parking slots exported successfully to " << filename << std::endl;
 }

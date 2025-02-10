@@ -6,6 +6,7 @@
 #include <sstream>
 #include <string>
 #include <iostream>
+#include <fstream>  // Include for file handling
 
 class ParkingSlots {
 private:
@@ -17,6 +18,9 @@ public:
     void addSlot(const std::string &location, const std::string &status, double price);
     void updateSlotStatus(int slot_id, const std::string &new_status);
     void deleteSlot(int slot_id);
+
+    // New function to export parking slots to CSV
+    void exportSlotsToCSV(const std::string &filename);
 };
 
 #endif
